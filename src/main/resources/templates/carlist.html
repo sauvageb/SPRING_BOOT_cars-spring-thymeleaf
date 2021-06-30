@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org"
+>
+
+<head th:replace="fragments/main :: common_header(~{::title},~{})">
+    <title>CarEE | Home</title>
+</head>
+
+<body>
+<!-- Preloader -->
+<div class="loader-mask">
+    <div class="loader">
+        <div></div>
+        <div></div>
+    </div>
+</div>
+
+<!-- Header - NavBar -->
+<div th:replace="fragments/header :: header"></div>
+
+<div class="main-wrapper oh">
+    <div class="row mt-60 mb-60">
+        <div class="col-md-12 text-center">
+            <a th:href="@{'/auth/add-car'}" class="btn btn-lg btn-color btn-icon">
+                <span>Create Car</span>
+                <i class="fa fa-angle-right"></i>
+            </a>
+        </div>
+    </div>
+
+    <section class="section-wrap bg-light pb-90">
+        <div class="container">
+            <div class="row">
+
+
+                <div th:if="${#lists.isEmpty(carList)}" class="heading-row mb-30 text-center">
+                    <h2 class="heading">No Car</h2>
+                </div>
+
+                <div th:each="c: ${carList}" class="col-md-4 mb-30 wow fadeInUp" data-wow-duration="1s"
+                     data-wow-delay="0.1s">
+                    <div class="box-shadow">
+                        <img src="img/mission/mission.jpg" class="img-rounded" alt="">
+                        <div class="card">
+                            <h4 th:text="${c.name}"></h4>
+                            <div class="btn-group" role="group">
+
+                                <a th:href="@{'/details-car?id=' + ${c.id}}"
+                                   class="btn btn-lg btn-color btn-icon">Details
+                                    <i class="fa fa-angle-right"></i></a>
+                                <form style="display:inline" action="#" th:action="@{/auth/delete-car}" method="post">
+                                    <input type="hidden" th:value="${c.id}" name="id"/>
+                                    <button type="submit" class="btn btn-lg btn-red btn-icon">Delete
+                                        <i class="fa fa-angle-right"></i></button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Feature Tabs -->
+    <section class="section-wrap pb-50">
+        <div class="container">
+            <div class="heading-row mb-30 text-center">
+                <h2 class="heading">Our Services</h2>
+            </div>
+            <div class="row">
+                <div class="tabs feature-tabs text-center">
+                    <ul class="tabs__list">
+                        <li class="active feature-tabs__tabs__item tabs__item col-sm-4 col-xs-4 col-xxs-6">
+                            <a href="#tab-1" class="feature-tabs__link tabs__link">
+                                <i class="icon-search feature-tabs__icon"></i>AAAAAAA
+                            </a>
+                        </li>
+
+                        <li class="feature-tabs__tabs__item tabs__item col-sm-4 col-xs-4 col-xxs-6">
+                            <a href="#tab-2" class="feature-tabs__link tabs__link">
+                                <i class="icon-speedometer feature-tabs__icon"></i>BBBBBBBB
+                            </a>
+                        </li>
+
+                        <li class="feature-tabs__tabs__item tabs__item col-sm-4 col-xs-4 col-xxs-6">
+                            <a href="#tab-3" class="feature-tabs__link tabs__link">
+                                <i class="icon-tools feature-tabs__icon"></i>CCCCCCCC
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-wrap tabs__content bg-light pb-80 pt-90">
+        <div class="container">
+            <div class="tabs__content__pane active" id="tab-1">
+                <div class="row">
+                    <div class="col-md-5">
+                        <p class="lead">AAAAAAA</p>
+                    </div>
+                    <div class="col-md-6 col-md-offset-1 tabs__content__text">
+                        <p>AAAAAAA AAAAAAA AAAAAAA AAAAAAA AAAAAAA AAAAAAA AAAAAAA AAAAAAA AAAAAAA AAAAAAA</p>
+                        <p>AAAAAAA AAAAAAA AAAAAAA AAAAAAA AAAAAAA AAAAAAA AAAAAAA AAAAAAA AAAAAAA AAAAAAA</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tabs__content__pane" id="tab-2">
+                <div class="row">
+                    <div class="col-md-5">
+                        <p class="lead">BBBBBBB</p>
+                    </div>
+                    <div class="col-md-6 col-md-offset-1 tabs__content__text">
+                        <p>BBBBBBB BBBBBBB BBBBBBB BBBBBBB BBBBBBB BBBBBBB BBBBBBB BBBBBBB BBBBBBB BBBBBBB</p>
+                        <p>BBBBBBB BBBBBBB BBBBBBB BBBBBBB BBBBBBB BBBBBBB BBBBBBB BBBBBBB BBBBBBB BBBBBBB</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tabs__content__pane" id="tab-3">
+                <div class="row">
+                    <div class="col-md-5">
+                        <p class="lead">CCCCCCC</p>
+                    </div>
+                    <div class="col-md-6 col-md-offset-1 tabs__content__text">
+                        <p>CCCCCCC CCCCCCC CCCCCCC CCCCCCC CCCCCCC CCCCCCC CCCCCCC CCCCCCC CCCCCCC CCCCCCC</p>
+                        <p>CCCCCCC CCCCCCC CCCCCCC CCCCCCC CCCCCCC CCCCCCC CCCCCCC CCCCCCC CCCCCCC CCCCCCC</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-wrap white-text pt-sm-50" style="background-image: url(img/sections/results_bg.jpg)">
+        <div class="container text-center">
+            <div class="row text-center">
+                <div class="col-sm-12 mb-sm-40 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.1s">
+                    <div class="counter">
+                        <span class="counter__timer" data-from="0"
+                              th:attr="data-to=${#lists.size(carList)}">&nbps;</span>
+                        <span class="counter__text">Cars Available</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <a href="#" class="call-to-action-1 bg-dark white-text">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <h2 class="call-to-action-1__title mt-0">What are you waiting for? purchase a CarEE now</h2>
+                    <i class="call-to-action-1__icon fa fa-chevron-right"></i>
+                </div>
+            </div>
+        </div>
+    </a>
+
+    <!-- Footer -->
+    <div th:replace="fragments/footer :: footer"></div>
+</div>
+
+</body>
+</html>

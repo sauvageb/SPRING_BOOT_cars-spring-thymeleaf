@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+
+<head th:replace="fragments/main :: common_header(~{::title},~{})">
+    <title>CarEE | Logout</title>
+</head>
+
+<body>
+<!-- Preloader -->
+<div class="loader-mask">
+    <div class="loader">
+        <div></div>
+        <div></div>
+    </div>
+</div>
+
+<!-- Header - NavBar -->
+<div th:replace="fragments/header :: header"></div>
+
+<main class="main oh">
+
+    <section class="section-wrap white-text" id="contact"
+             style="background-image: url('/img/sections/contact_bg.jpg')">
+        <div class="container">
+
+            <div class="heading-row text-center">
+                <h2 class="heading">Are you sure you want to logout? </h2>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="col-md-2 col-md-offset-3">
+                        <form method="post" th:action="@{/auth/leave}" class="text-center">
+                            <input name="leave" type="hidden" value="true">
+                            <input type="submit" class="btn btn-lg btn-color btn-button" value="Yes">
+                        </form>
+                    </div>
+
+                    <div class="col-md-2 col-md-offset-2">
+                        <form method="post" th:action="@{/auth/leave}" class="text-center">
+                            <input name="leave" type="hidden" value="false">
+                            <input type="submit" class="btn btn-lg btn-red btn-button" value="No">
+                        </form>
+                    </div>
+
+                    <div id="msg" class="message"></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-wrap bg-light pb-90">
+        <div class="container">
+
+            <div class="heading-row text-center">
+                <h2 class="heading">FEATURES</h2>
+            </div>
+
+            <div class="row">
+                <div class="col-md-4 wow bounceInUp" data-wow-duration="1s" data-wow-delay="0.3s">
+                    <div class="feature-1 feature-1--sm-padding box-shadow">
+                        <i class="feature__icon icon icon-mobile"></i>
+                        <h3 class="feature__title">Responsive</h3>
+                    </div>
+                </div>
+
+                <div class="col-md-4 wow bounceInUp" data-wow-duration="1s" data-wow-delay="0.3s">
+                    <div class="feature-1 feature-1--sm-padding box-shadow">
+                        <i class="feature__icon icon icon-layers"></i>
+                        <h3 class="feature__title">Multi-platform</h3>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-md-4 wow bounceInUp" data-wow-duration="1s" data-wow-delay="0.3s">
+                    <div class="feature-1 feature-1--sm-padding box-shadow">
+                        <i class="feature__icon icon icon-speedometer"></i>
+                        <h3 class="feature__title">Efficient</h3>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <div th:replace="fragments/footer :: footer"></div>
+</main>
+
+</body>
+</html>

@@ -1,0 +1,28 @@
+<head th:fragment="common_header(title,links)" xmlns:th="http://www.w3.org/1999/xhtml">
+    <title th:replace="${title}">CarEE</title>
+    <!-- ###########  META ########### -->
+    <meta charset="utf-8">
+    <!--[if IE]>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+    <meta name="description" content="">
+
+    <!-- Google Fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700%7CSource+Sans+Pro:400,300,700,600%7CPlayfair+Display:400,700,400italic'
+          rel='stylesheet'>
+
+    <!-- Css -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/font-icons.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/colors/color-mint.css">
+
+    <!-- Favicons -->
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <!--/* Per-page placeholder for additional links */-->
+    <th:block th:replace="${links}"/>
+</head>
+
+
+

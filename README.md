@@ -26,6 +26,11 @@ MySQL Database is required with informations below :
 
 For changing this default config, you can update application.properties.
 
+### Using
+
+There is three  
+- 
+
 ### Author : SAUVAGE Boris
 
 + [`Github`](https://github.com/sauvageb)

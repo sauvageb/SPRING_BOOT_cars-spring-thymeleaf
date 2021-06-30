@@ -41,7 +41,7 @@
                 <div th:each="c: ${carList}" class="col-md-4 mb-30 wow fadeInUp" data-wow-duration="1s"
                      data-wow-delay="0.1s">
                     <div class="box-shadow">
-                        <img src="img/mission/mission.jpg" class="img-rounded" alt="">
+                        <img src="img/car_placeholder.jpg" class="img-rounded" alt="">
                         <div class="card">
                             <h4 th:text="${c.name}"></h4>
                             <div class="btn-group" role="group">
@@ -136,7 +136,7 @@
         </div>
     </section>
 
-    <section class="section-wrap white-text pt-sm-50" style="background-image: url(img/sections/results_bg.jpg)">
+    <section class="section-wrap white-text pt-sm-50"  th:style="'background-image:url(' + @{/img/results_bg.jpg} + ');'">
         <div class="container text-center">
             <div class="row text-center">
                 <div class="col-sm-12 mb-sm-40 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.1s">

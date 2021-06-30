@@ -15,6 +15,17 @@ This is an example about Spring Boot and Thymeleaf.
 + MySQL / JPA
 + HTML / CSS / JS / Thymeleaf
 
+### Running
+
+MySQL Database is required with informations below :
+
+- name : carspring
+- port : 8889
+- user : root
+- password : root
+
+For changing this default config, you can update application.properties.
+
 ### Author : SAUVAGE Boris
 
 + [`Github`](https://github.com/sauvageb)

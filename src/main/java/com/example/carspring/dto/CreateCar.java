@@ -1,10 +1,25 @@
 package com.example.carspring.dto;
 
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+
 public class CreateCar {
+
+    @NotNull
+    @NotEmpty(message = "name cannot be empty.")
     private String name;
+
+    @NotNull
+    @NotEmpty(message = "description cannot be empty.")
     private String description;
+
+    @NotNull
+    @Min(value = 1, message = "price must not be below minimum")
     private float price;
 
+    @NotNull
+    @Min(value = 1, message = "category cannot be empty.")
     private Long categoryId;
 
     public CreateCar() {

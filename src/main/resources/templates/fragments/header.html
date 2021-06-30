@@ -3,8 +3,9 @@
     <div class="nav__holder nav--sticky">
         <div class="container relative">
             <div class="flex-parent">
-                <form method="get" th:action="@{'/list-car'}" action="#" class="nav__search-wrap">
-                    <input type="search" class="nav__search-input" placeholder="Searching...">
+
+                <form method="get" th:action="@{/list-car}" action="#" class="nav__search-wrap">
+                    <input name="search" type="text" class="nav__search-input" placeholder="Searching...">
                     <i class="fa fa-close nav__search-close" id="nav__search-close"></i>
                 </form>
 
@@ -72,12 +73,16 @@
 
                         <!-- Mobile Search -->
                         <li class="hidden-lg hidden-md">
-                            <form method="get" class="nav__search-mobile">
-                                <input type="search" placeholder="Search..." class="nav__search-mobile-input">
+
+                            <form method="get" action="#" class="nav__search-mobile" th:action="@{/list-car}">
+                                <input name="search" type="text" placeholder="Search..."
+                                       class="nav__search-mobile-input"/>
                                 <button type="submit" class="nav__search-mobile-button">
                                     <i class="fa fa-search"></i>
                                 </button>
                             </form>
+
+
                         </li>
                     </ul>
                 </nav>

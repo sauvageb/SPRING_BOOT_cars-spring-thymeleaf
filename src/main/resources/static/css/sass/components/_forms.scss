@@ -7,11 +7,11 @@ select,
 textarea {
   height: 38px;
   border: 1px solid $border-color;
-  background-color: rgba(255,255,255,0.2);
+  background-color: rgba(255, 255, 255, 0.2);
   width: 100%;
   margin-bottom: 30px;
   padding: 0 16px;
-  @include transition(border-color .3s ease-in-out, background-color .3s ease-in-out)
+  @include transition(border-color .3s ease-in-out, background-color .3s ease-in-out);
   color: $text-color;
   font-size: 14px;
 }
@@ -57,7 +57,7 @@ textarea:focus {
 #contact-form input[type="email"],
 #contact-form textarea {
   color: #fff;
-  border-color: transparent; 
+  border-color: transparent;
 }
 
 #contact-form input::-webkit-input-placeholder,
@@ -94,5 +94,10 @@ textarea:focus {
   color: #fff;
 }
 
-#contact-form .message.error { background-color: #f44336; }
-#contact-form .message.success { background-color: #4CAF50; }
+#contact-form .message.error {
+  background-color: #f44336;
+}
+
+#contact-form .message.success {
+  background-color: #4CAF50;
+}

@@ -7,6 +7,8 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+import static com.example.carspring.repository.EntitySpecification.textInAllColumns;
+
 
 @Service("CarService")
 public class CarServiceImpl implements CarService {
@@ -31,4 +33,11 @@ public class CarServiceImpl implements CarService {
     public Car fetchSpecificCar(Long id) {
         return carRepository.findById(id).orElse(null);
     }
+
+    @Override
+    public List<Car> searchCarsByNameOrDescription(String value) {
+        return carRepository.findAll(textInAllColumns(value));
+    }
+
+
 }

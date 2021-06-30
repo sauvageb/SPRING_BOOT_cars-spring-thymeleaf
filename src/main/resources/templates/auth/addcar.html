@@ -34,7 +34,7 @@
 
                             <div class="col-md-6 col-lg-offset-3">
                                 <select th:field="*{categoryId}" name="carCategory">
-                                    <option value="">--Please choose an category--</option>
+                                    <option value="0">Please choose an category</option>
                                     <option th:each="c: ${categoryList}" th:value="${c.id}"
                                             th:text="${c.name}"></option>
                                     </th:each>
@@ -42,7 +42,7 @@
                             </div>
 
                             <div class="col-md-6 col-lg-offset-3">
-                                <input th:field="*{name}" type="text" placeholder="Name">
+                                <input th:field="*{name}" type="text" placeholder="Name"/>
                             </div>
 
                             <div class="col-md-6 col-lg-offset-3">
@@ -53,9 +53,13 @@
                                 <input th:field="*{price}" type="number" placeholder="70000">
                             </div>
                         </div>
+                        <div class="col-md-6 col-lg-offset-3">
+                            <input type="submit" class="btn btn-lg btn-color btn-button" value="Add Car">
+                        </div>
 
-                        <input type="submit" class="btn btn-lg btn-color btn-button" value="Add Car">
-                        <div id="msg" class="message"></div>
+                        <div class="col-md-6 col-lg-offset-3 mt-20 error-message" th:if="${#fields.hasAnyErrors()}">
+                            <p th:each="err : ${#fields.allErrors()}" th:text="${err}"></p>
+                        </div>
                     </form>
                 </div>
             </div>

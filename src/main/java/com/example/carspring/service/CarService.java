@@ -13,4 +13,6 @@ public interface CarService {
     void removeCar(Long id);
 
     Car fetchSpecificCar(Long id);
+
+    List<Car> searchCarsByNameOrDescription(String value);
 }

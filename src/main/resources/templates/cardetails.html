@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="fr" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<html lang="fr" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 
 <head th:replace="fragments/main :: common_header(~{::title},~{})">
     <title>CarEE | Details</title>
@@ -34,7 +35,7 @@
                                 <a th:href="@{'/list-category'}"
                                    class="btn btn-primary" th:text="${car.category.name}"></a>
                             </div>
-                            <div class="btn-group text-right" role="group">
+                            <div sec:authorize="hasRole('ROLE_ADMIN')" lass="btn-group text-right" role="group">
                                 <a href="#"
                                    class="btn btn-lg btn-color btn-icon">Edit<i
                                         class="fa fa-angle-right"></i></a>

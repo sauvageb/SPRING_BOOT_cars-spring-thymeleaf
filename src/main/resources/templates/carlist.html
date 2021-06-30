@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr" xmlns:th="http://www.thymeleaf.org"
->
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 
 <head th:replace="fragments/main :: common_header(~{::title},~{})">
     <title>CarEE | Home</title>
@@ -20,7 +20,8 @@
 
 <div class="main-wrapper oh">
     <div class="row mt-60 mb-60">
-        <div class="col-md-12 text-center">
+
+        <div class="col-md-12 text-center" sec:authorize="hasRole('ROLE_ADMIN')">
             <a th:href="@{'/auth/add-car'}" class="btn btn-lg btn-color btn-icon">
                 <span>Create Car</span>
                 <i class="fa fa-angle-right"></i>
@@ -44,11 +45,12 @@
                         <div class="card">
                             <h4 th:text="${c.name}"></h4>
                             <div class="btn-group" role="group">
-
                                 <a th:href="@{'/details-car?id=' + ${c.id}}"
                                    class="btn btn-lg btn-color btn-icon">Details
-                                    <i class="fa fa-angle-right"></i></a>
-                                <form style="display:inline" action="#" th:action="@{/auth/delete-car}" method="post">
+                                    <i class="fa fa-angle-right"></i>
+                                </a>
+                                <form sec:authorize="hasRole('ROLE_ADMIN')" style="display:inline" action="#"
+                                      th:action="@{/auth/delete-car}" method="post">
                                     <input type="hidden" th:value="${c.id}" name="id"/>
                                     <button type="submit" class="btn btn-lg btn-red btn-icon">Delete
                                         <i class="fa fa-angle-right"></i></button>

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<html lang="fr" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 
 <head th:replace="fragments/main :: common_header(~{::title},~{})">
     <title>CarEE | Category list</title>
@@ -20,7 +21,9 @@
 <div class="main-wrapper oh">
     <div class="row mt-60 mb-60">
         <div class="col-md-12 text-center">
-            <a th:href="@{'auth/add-category'}" class="btn btn-lg btn-color btn-icon">
+
+            <a sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{'auth/add-category'}" class="btn btn-lg btn-color
+                btn-icon">
                 <span>Create Category</span>
                 <i class="fa fa-angle-right"></i>
             </a>
@@ -41,12 +44,13 @@
                         <div class="card">
                             <h4 th:text="${c.name}"></h4>
 
-                            <div class="btn-group" role="group">
+                            <div sec:authorize="hasRole('ROLE_ADMIN')" class="btn-group" role="group">
                                 <a href="#"
                                    class="btn btn-lg btn-color btn-icon">Edit<i
                                         class="fa fa-angle-right"></i></a>
 
-                                <form style="display:inline" action="#" th:action="@{/auth/delete-category}"
+                                <form style="display:inline" action="#"
+                                      th:action="@{/auth/delete-category}"
                                       method="post">
                                     <input type="hidden" th:value="${c.id}" name="id"/>
                                     <button type="submit" class="btn btn-lg btn-red btn-icon">Delete

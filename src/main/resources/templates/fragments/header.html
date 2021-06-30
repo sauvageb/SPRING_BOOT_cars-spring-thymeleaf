@@ -3,8 +3,6 @@
     <div class="nav__holder nav--sticky">
         <div class="container relative">
             <div class="flex-parent">
-
-
                 <form method="get" th:action="@{'/list-car'}" action="#" class="nav__search-wrap">
                     <input type="search" class="nav__search-input" placeholder="Searching...">
                     <i class="fa fa-close nav__search-close" id="nav__search-close"></i>
@@ -12,11 +10,20 @@
 
                 <div class="nav__header clearfix">
                     <!-- Logo -->
-                    <div class="logo-wrap">
+                    <div class="logo-wrap" style=" display: flex;align-items: center;margin-left: 20px;">
                         <a th:href="@{'/list-car'}" class="logo__link">
                             <img class="logo logo--dark" th:src="@{'/img/logo_dark.png'}"
                                  alt="logo">
                         </a>
+
+                        <div style="align-self: center; margin-left: 10px">
+                            <ul>
+                                <li sec:authorize="isAuthenticated()"><a class="nav-link" href="/logout">Logout</a></li>
+                                <li sec:authorize="isAuthenticated()">Welcome <span sec:authentication="name"></span> <i
+                                        class="fa fa-heart"></i>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
 
                     <button type="button" class="nav__icon-toggle" id="nav__icon-toggle" data-toggle="collapse"
@@ -49,13 +56,10 @@
                             </ul>
                         </li>
 
-                        <li class="nav__dropdown active">
+                        <li sec:authorize="isAnonymous()" class="nav__dropdown active">
                             <a th:href="@{'/login'}">Login</a>
                         </li>
 
-                        <li class="nav__dropdown active" sec:authorize="isAuthenticated()">
-                            <a th:href="@{'/auth/logout'}">Logout</a>
-                        </li>
 
                         <!-- Search -->
                         <li class="hidden-sm hidden-xs">
